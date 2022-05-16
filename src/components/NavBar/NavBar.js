@@ -1,3 +1,4 @@
+import { CartWidget } from '../CartWidget/CartWidget';
 import './navbar.css';
 
 export function NavBar() {
@@ -5,7 +6,7 @@ export function NavBar() {
 		<div>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid">
-					<a className="navbar-brand" href="#">
+					<a className="navbar-brand" href="...">
 						MichiStore 🐈
 					</a>
 					<button
@@ -27,18 +28,21 @@ export function NavBar() {
 							<a
 								className="nav-link active"
 								aria-current="page"
-								href="#"
+								href="..."
 							>
 								Inicio
 							</a>
-							<a className="nav-link" href="#">
+							<a className="nav-link" href="...">
 								Productos
 							</a>
-							<a className="nav-link" href="#">
+							<a className="nav-link" href="...">
 								Adopcion
 							</a>
 						</div>
-						<a className="nav-link login" href="#">
+						<a className="nav-link login" href="...">
+							<CartWidget />
+						</a>
+						<a className="nav-link" href="...">
 							Login
 						</a>
 					</div>
