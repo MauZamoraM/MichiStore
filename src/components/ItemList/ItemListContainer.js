@@ -1,6 +1,6 @@
 import './Cart.css';
 
-export const ItemListContainer = () => {
+export const ItemListContainer = (props) => {
 	return (
 		<div className="items">
 			<div class="card">
@@ -12,7 +12,7 @@ export const ItemListContainer = () => {
 						alt="Imagen producto"
 					/>
 				</div>
-				<div class="category"> Producto </div>
+				<div class="category"> {props.producto} </div>
 				<div class="heading">Algun producto de la tienda 😁</div>
 			</div>
 		</div>
