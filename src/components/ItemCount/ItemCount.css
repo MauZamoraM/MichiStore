@@ -1,0 +1,17 @@
+.contador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+}
+.numero{
+    margin: 10px;
+    text-align: center;
+}
+.contenedor{
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 0 1px;
+    border-radius: 10px;
+    margin: auto;
+}
