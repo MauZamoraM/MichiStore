@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import './ItemCount.css';
 
-export const ItemCount = () => {
-	const [contador, setContador] = useState(0);
+export const ItemCount = (props) => {
+	const stock = parseInt(props.stock);
+	const inicial = parseInt(props.inicial);
+
+	const [contador, setContador] = useState(inicial);
 
 	function aumentar() {
-		if (contador < 5) {
+		if (contador < stock) {
 			setContador(contador + 1);
 		}
 	}
