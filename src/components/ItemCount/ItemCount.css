@@ -1,17 +1,77 @@
-.contador{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row;
+.contador {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
 }
-.numero{
-    margin: 10px;
-    text-align: center;
+.boton {
+	border: 1px solid #ffd284;
+	margin: 5px;
+	background-color: transparent;
 }
-.contenedor{
-    padding: 10px;
-    width: 300px;
-    box-shadow: 0 0 1px;
-    border-radius: 10px;
-    margin: auto;
+
+.boton:hover {
+	box-shadow: 0 0 5px #fab43d;
+}
+
+.numero {
+	margin: 10px;
+	text-align: center;
+}
+.contenedor {
+	padding: 10px;
+	width: 300px;
+	box-shadow: 0 0 2px #fab43d;
+	border-radius: 10px;
+	margin: auto;
+}
+/* From uiverse.io by @alexmaracinaru */
+.cta {
+	border: none;
+	background: none;
+}
+
+.cta span {
+	padding-bottom: 7px;
+	letter-spacing: 4px;
+	font-size: 10px;
+	padding-right: 15px;
+	text-transform: uppercase;
+}
+
+.cta svg {
+	transform: translateX(-8px);
+	transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+	transform: translateX(0);
+}
+
+.cta:active svg {
+	transform: scale(0.9);
+}
+
+.hover-underline-animation {
+	position: relative;
+	color: black;
+	padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 1.5px;
+	bottom: 0;
+	left: 0;
+	background-color: #000000;
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
 }

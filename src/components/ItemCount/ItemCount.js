@@ -20,19 +20,38 @@ export const ItemCount = (props) => {
 
 	return (
 		<div className="contenedor">
-			<h2>Contador</h2>
-			<hr />
 			<div className="contador">
-				<button className="btn btn-outline-primary" onClick={disminuir}>
-					-
-				</button>
-				<h3 className="numero">{contador}</h3>
-				<button className="btn btn-outline-primary" onClick={aumentar}>
-					+
-				</button>
+				<div>
+					<button className="boton btn-sm" onClick={disminuir}>
+						-
+					</button>
+					<button className="boton btn-sm" onClick={aumentar}>
+						+
+					</button>
+				</div>
+				<div>
+					<h6 className="numero">Cantidad: {contador}</h6>
+				</div>
 			</div>
-			<button className="btn btn-outline-primary">
-				Agregar al carrito
+			<button className="cta">
+				<span className="hover-underline-animation">
+					{' '}
+					Agregar al carrito{' '}
+				</span>
+				<svg
+					id="arrow-horizontal"
+					xmlns="http://www.w3.org/2000/svg"
+					width="30"
+					height="10"
+					viewBox="0 0 46 16"
+				>
+					<path
+						id="Path_10"
+						data-name="Path 10"
+						d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+						transform="translate(30)"
+					></path>
+				</svg>
 			</button>
 		</div>
 	);

@@ -1,0 +1,33 @@
+.contenedor-detalles {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.details {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	padding: 20px;
+}
+.img-prod,
+.details {
+	margin: 20px;
+	width: 50%;
+	text-align: center;
+}
+.img-prod {
+	width: 500px;
+	height: 500px;
+	border: 7px solid #fab43d;
+	border-radius: 50%;
+	padding: 75px;
+}
+.categoria {
+	text-decoration: none;
+	color: #fab43d;
+}
+.categoria:hover {
+	color: #fab43d;
+}

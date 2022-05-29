@@ -2,15 +2,17 @@ import './Cart.css';
 
 export function Item({ id, nombre, precio, stock, img, descripcion }) {
 	return (
-		<div className="card">
+		<div className="card animate__animated animate__fadeIn">
 			<div className="card-image">
-				<img src={img} alt="Imagen producto" />
+				<img src={img} className="imagen2" alt="Imagen producto" />
 			</div>
-			<div className="category"> {nombre} </div>
-			<div className="heading">
-				<h5>{descripcion}</h5>
-				<p>$ {precio}</p>
-				<p>Stock: {stock}</p>
+			<div className="info">
+				<div className="category">
+					<b>{nombre}</b>
+				</div>
+				<div className="heading">
+					<p>$ {precio}</p>
+				</div>
 			</div>
 		</div>
 	);
