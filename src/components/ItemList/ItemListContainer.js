@@ -14,6 +14,9 @@ export const ItemListContainer = ({ greeting }) => {
 
 	return (
 		<div>
+			<h1 style={{ color: '#fab43d' }} className="mt-4">
+				Productos
+			</h1>
 			<ItemList productos={productos} />
 		</div>
 	);
