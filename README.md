@@ -6,7 +6,7 @@ Esta aplicacion fue creada con React ⚛️
 
 ### Asi es como se ve la pagina ✨
 
-![Preview Img](./public/MichiPreview.gif)
+![Preview Img](./public/Preview.gif)
 
 ---
 
