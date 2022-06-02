@@ -1,14 +1,26 @@
-.login{
-    text-decoration: none;
-    color: gray;
+.login {
+	text-decoration: none;
+	color: gray;
 }
-.login:hover{
-    color: gray
+.login:hover {
+	color: gray;
 }
-.imagen{
-    width: 60px;
-    height: 60px;
+.imagen {
+	width: 60px;
+	height: 60px;
 }
-.carrito{
-    margin-left: auto;
+.carrito {
+	margin-left: auto;
+}
+.boton-nav {
+	background-color: transparent;
+	border: 1px solid transparent;
+	text-align: center;
+	color: grey;
+}
+.navbar-orden {
+	justify-content: center;
+	text-align: center;
+	display: flex;
+	align-items: center;
 }

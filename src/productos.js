@@ -3,7 +3,7 @@ const productos = [
 		id: 1,
 		nombre: 'Rascador',
 		precio: 1500,
-		categoria: 'Rascadores',
+		categoria: 'Rascador',
 		img: 'https://m.media-amazon.com/images/I/71dv6K8Zp-L._AC_UL320_.jpg',
 		stock: 25,
 		descripcion:
@@ -79,7 +79,7 @@ export function getProductos() {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(productos);
-		}, 100);
+		}, 2000);
 	});
 }
 
@@ -87,6 +87,13 @@ export function getProductosById(id) {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(productos.find((prod) => prod.id === id));
-		}, 100);
+		}, 2000);
+	});
+}
+export function getProductosByCategory(categoryId) {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(productos.filter((prod) => prod.categoria === categoryId));
+		}, 2000);
 	});
 }

@@ -1,8 +1,12 @@
+import { Link } from 'react-router-dom';
 import './Cart.css';
 
 export function Item({ id, nombre, precio, stock, img, descripcion }) {
 	return (
-		<div className="card animate__animated animate__fadeIn">
+		<Link
+			to={`/productos/${id}`}
+			className="card animate__animated animate__fadeIn"
+		>
 			<div className="card-image">
 				<img src={img} className="imagen2" alt="Imagen producto" />
 			</div>
@@ -14,6 +18,6 @@ export function Item({ id, nombre, precio, stock, img, descripcion }) {
 					<p>$ {precio}</p>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 }

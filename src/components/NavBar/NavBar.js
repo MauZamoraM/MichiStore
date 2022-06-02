@@ -1,15 +1,16 @@
 import { CartWidget } from '../CartWidget/CartWidget';
 import img from './Michi Store.png';
 import './navbar.css';
+import { Link, NavLink } from 'react-router-dom';
 
 export function NavBar() {
 	return (
 		<div>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid">
-					<a className="navbar-brand" href="...">
+					<Link className="navbar-brand" to="/productos">
 						<img className="imagen" src={img} alt="" />
-					</a>
+					</Link>
 					<button
 						className="navbar-toggler"
 						type="button"
@@ -25,20 +26,58 @@ export function NavBar() {
 						className="collapse navbar-collapse"
 						id="navbarNavAltMarkup"
 					>
-						<div className="navbar-nav">
-							<a
-								className="nav-link"
-								aria-current="page"
-								href="..."
-							>
-								Inicio
-							</a>
-							<a className="nav-link" href="...">
+						<div className="navbar-nav navbar-orden">
+							<Link className="nav-link" to="/productos">
 								Productos
-							</a>
-							<a className="nav-link" href="...">
-								Adopcion
-							</a>
+							</Link>
+							<div className="dropdown">
+								<button
+									className="boton-nav dropdown-toggle"
+									type="button"
+									id="dropdownMenuButton1"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Categorias
+								</button>
+								<ul
+									className="dropdown-menu"
+									aria-labelledby="dropdownMenuButton1"
+								>
+									<li>
+										<NavLink
+											className="dropdown-item"
+											to="/categoria/Rascador"
+										>
+											Racador
+										</NavLink>
+									</li>
+									<li>
+										<Link
+											className="dropdown-item"
+											to="/categoria/Alimento"
+										>
+											Alimento
+										</Link>
+									</li>
+									<li>
+										<Link
+											className="dropdown-item"
+											to="/categoria/Juguetes y más"
+										>
+											Juguetes y más
+										</Link>
+									</li>
+									<li>
+										<Link
+											className="dropdown-item"
+											to="/categoria/Arena"
+										>
+											Arena
+										</Link>
+									</li>
+								</ul>
+							</div>
 						</div>
 						<a className="nav-link carrito" href="...">
 							<CartWidget />

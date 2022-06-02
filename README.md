@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Michi Store 🐈
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Michi Store es un tienda de venta de productos para animales minimalista, simple de utilizar y bonita ✨
 
-## Available Scripts
+Esta aplicacion fue creada con React ⚛️
 
-In the project directory, you can run:
+### Asi es como se ve la pagina ✨
 
-### `npm start`
+![Preview Img](./public/MichiPreview.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ¿Como empezamos?
 
-### `npm test`
+Empecemos haciendo la instalacion necesaria en el proyecto 😁
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm i` - Para instalar los nodemodules
 
-### `npm run build`
+`npm start` - Para correr la app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Componentes creados
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   NavBar
+    -   Es la barra de navegacion, esta se encarga de facilitarnos el movimiento por la pagina
+-   Item, Item List y Item List Container
+    -   Item: Aqui es lo que nos porporciona la informacion general de lo que es item
+    -   Itemlist: Esta es la parte que se encarga de decir cuales items se van a mostrar
+    -   ItemListCotainer: Es el contenedor que va a guardar los item listados
+-   ItemCount
+    -   El cotador donde puedes agregar tus productos
+-   ItemDetal y ItemDetailContainer
+    -   Se muestra el detalle del item que sea deseado
+    -   Y el contenedor es donde se almacena la informacion de item con el contador para que se agregue algun producto
+-   CartWidget
+    -   El icono del carrito
