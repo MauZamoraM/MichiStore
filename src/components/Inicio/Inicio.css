@@ -1,0 +1,15 @@
+.Inicio {
+	width: 500px;
+	height: 500px;
+}
+.tituloInicio {
+	color: #fab43d;
+}
+.incio-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.bienvenido {
+	width: 60%;
+}

@@ -3,6 +3,7 @@ import { ItemListContainer } from './components/ItemList/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetail/ItemDetailContainer';
 import { NavBar } from './components/NavBar/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Inicio } from './components/Inicio/Inicio';
 
 function App() {
 	return (
@@ -10,6 +11,7 @@ function App() {
 			<BrowserRouter>
 				<NavBar />
 				<Routes>
+					<Route path="/" element={<Inicio />} />
 					<Route
 						path="/productos"
 						element={
