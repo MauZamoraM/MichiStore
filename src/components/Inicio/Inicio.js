@@ -1,4 +1,4 @@
-import imgB from './Welcome.png';
+import imgB from './Welcomee.png';
 import './Inicio.css';
 
 export function Inicio() {
