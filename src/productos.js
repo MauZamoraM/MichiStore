@@ -79,7 +79,7 @@ export function getProductos() {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(productos);
-		}, 2000);
+		}, 200);
 	});
 }
 
@@ -87,13 +87,13 @@ export function getProductosById(id) {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(productos.find((prod) => prod.id === id));
-		}, 2000);
+		}, 200);
 	});
 }
 export function getProductosByCategory(categoryId) {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(productos.filter((prod) => prod.categoria === categoryId));
-		}, 2000);
+		}, 200);
 	});
 }

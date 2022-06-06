@@ -13,3 +13,8 @@
 .bienvenido {
 	width: 60%;
 }
+@media (max-width: 600px) {
+	.bienvenido {
+		width: 100%;
+	}
+}

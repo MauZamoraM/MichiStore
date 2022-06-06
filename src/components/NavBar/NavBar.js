@@ -79,7 +79,7 @@ export function NavBar() {
 								</ul>
 							</div>
 						</div>
-						<a className="nav-link carrito" href="...">
+						<a className="nav-link carrito mt-2" href="...">
 							<CartWidget />
 						</a>
 						<a className="nav-link login" href="...">
