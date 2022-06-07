@@ -37,7 +37,10 @@ export const ItemDetail = ({
 				<p>$ {precio}</p>
 				<p>Stock: {stock}</p>
 				{cantidad > 0 ? (
-					<Link to="/cart" className="cta">
+					<Link
+						to="/cart"
+						className="cta animate__animated animate__fadeIn"
+					>
 						<span className="hover-underline-animation">
 							{' '}
 							Finalizar compra{' '}
