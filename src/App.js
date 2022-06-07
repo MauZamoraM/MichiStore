@@ -4,6 +4,7 @@ import { ItemDetailContainer } from './components/ItemDetail/ItemDetailContainer
 import { NavBar } from './components/NavBar/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Inicio } from './components/Inicio/Inicio';
+import { Cart } from './components/Cart/Cart';
 
 function App() {
 	return (
@@ -29,6 +30,10 @@ function App() {
 						element={<ItemDetailContainer />}
 					/>
 					<Route path="*" element={<h1>Page not found.</h1>} />
+					<Route
+						path="/cart"
+						element={<Cart titulo="C A R R I T O" />}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>

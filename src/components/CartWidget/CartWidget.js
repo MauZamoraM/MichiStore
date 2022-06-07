@@ -21,7 +21,7 @@ export function CartWidget() {
 					style={{ backgroundColor: '#FAB43D' }}
 					className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
 				>
-					4<span className="visually-hidden">unread messages</span>
+					0<span className="visually-hidden">unread messages</span>
 				</span>
 			</button>
 		</div>
