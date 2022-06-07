@@ -28,7 +28,7 @@ function App() {
 						path="/productos/:productId"
 						element={<ItemDetailContainer />}
 					/>
-					<Route path="*" element={<h1>Page not found</h1>} />
+					<Route path="*" element={<h1>Page not found.</h1>} />
 				</Routes>
 			</BrowserRouter>
 		</div>
