@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import './ItemCount.css';
 
-export const ItemCount = (props) => {
-	const stock = parseInt(props.stock);
-	const inicial = parseInt(props.inicial);
+export const ItemCount = ({ onConfirm, stock, inicial }) => {
+	const stock1 = parseInt(stock);
+	const inicial1 = parseInt(inicial);
 
-	const [contador, setContador] = useState(inicial);
+	const [contador, setContador] = useState(inicial1);
 
 	function aumentar() {
-		if (contador < stock) {
+		if (contador < stock1) {
 			setContador(contador + 1);
 		}
 	}
@@ -33,7 +33,7 @@ export const ItemCount = (props) => {
 					<h6 className="numero">Cantidad: {contador}</h6>
 				</div>
 			</div>
-			<button className="cta">
+			<button className="cta" onClick={() => onConfirm(contador)}>
 				<span className="hover-underline-animation">
 					{' '}
 					Agregar al carrito{' '}
