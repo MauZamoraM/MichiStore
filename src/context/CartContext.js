@@ -40,9 +40,14 @@ export const CartContextProvider = ({ children }) => {
 		return cart.find((prod) => prod.id === id);
 	};
 
+	const deleteFromCart = (id) => {
+		const newCart = cart.filter((prod) => prod.id !== id);
+		setCart(newCart);
+	};
+
 	return (
 		<ContextCart.Provider
-			value={{ addCart, cart, getQuantity, getProdCant }}
+			value={{ addCart, cart, getQuantity, getProdCant, deleteFromCart }}
 		>
 			{children}
 		</ContextCart.Provider>
