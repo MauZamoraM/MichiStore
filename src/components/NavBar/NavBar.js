@@ -79,9 +79,9 @@ export function NavBar() {
 								</ul>
 							</div>
 						</div>
-						<a className="nav-link carrito mt-2" href="...">
+						<Link className="nav-link carrito mt-2" to="cart">
 							<CartWidget />
-						</a>
+						</Link>
 						<a className="nav-link login" href="...">
 							Login
 						</a>

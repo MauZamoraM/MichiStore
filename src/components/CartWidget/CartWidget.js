@@ -1,4 +1,11 @@
+import { useContext } from 'react';
+import ContextCart from '../../context/CartContext';
+
 export function CartWidget() {
+	const { getQuantity } = useContext(ContextCart);
+
+	const cantidad = getQuantity();
+
 	return (
 		<div>
 			<button
@@ -21,7 +28,8 @@ export function CartWidget() {
 					style={{ backgroundColor: '#FAB43D' }}
 					className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
 				>
-					0<span className="visually-hidden">unread messages</span>
+					{cantidad}
+					<span className="visually-hidden">unread messages</span>
 				</span>
 			</button>
 		</div>

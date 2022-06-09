@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ItemCount } from '../ItemCount/ItemCount';
+import ContextCart from '../../context/CartContext';
 
 export const ItemDetail = ({
 	id,
@@ -13,9 +14,20 @@ export const ItemDetail = ({
 }) => {
 	const [cantidad, setCantidad] = useState(0);
 
-	const handleOnAdd = (count) => {
-		console.log(count);
-		setCantidad(count);
+	const { addCart, getProdCant } = useContext(ContextCart);
+
+	const handleOnAdd = (cantidad) => {
+		setCantidad(cantidad);
+		addCart({
+			id,
+			nombre,
+			categoria,
+			precio,
+			stock,
+			img,
+			descripcion,
+			cantidad,
+		});
 	};
 
 	return (
@@ -63,7 +75,7 @@ export const ItemDetail = ({
 				) : (
 					<ItemCount
 						stock={stock}
-						inicial="1"
+						inicial={getProdCant(id)?.cantidad}
 						onConfirm={handleOnAdd}
 					/>
 				)}

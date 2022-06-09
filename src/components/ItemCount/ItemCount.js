@@ -5,7 +5,7 @@ export const ItemCount = ({ onConfirm, stock, inicial }) => {
 	const stock1 = parseInt(stock);
 	const inicial1 = parseInt(inicial);
 
-	const [contador, setContador] = useState(inicial1);
+	const [contador, setContador] = useState(inicial1 || 1);
 
 	function aumentar() {
 		if (contador < stock1) {
@@ -13,7 +13,7 @@ export const ItemCount = ({ onConfirm, stock, inicial }) => {
 		}
 	}
 	function disminuir() {
-		if (contador > 0) {
+		if (contador > 1) {
 			setContador(contador - 1);
 		}
 	}
