@@ -21,13 +21,15 @@
 	color: rgb(145, 145, 145);
 }
 .imgCartContainer {
-	max-width: 100px;
-	max-height: 100px;
-	margin: 10px;
+	max-width: 150px;
+	max-height: 150px;
+	width: 150px;
+	height: 150px;
 }
 .imgCart {
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
 }
 /* From uiverse.io */
 .noselect {
