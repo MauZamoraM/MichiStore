@@ -12,7 +12,7 @@ export function CartDetail({
 	descripcion,
 	cantidad,
 }) {
-	const { cart, deleteFromCart } = useContext(ContextCart);
+	const { deleteFromCart } = useContext(ContextCart);
 
 	return (
 		<div className="containerCart">

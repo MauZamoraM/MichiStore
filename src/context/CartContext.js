@@ -11,10 +11,22 @@ export const CartContextProvider = ({ children }) => {
 		} else {
 			const newCart = cart.map((prod) => {
 				if (prod.id === prodAdd.id) {
-					const newProd = {
-						...prod,
-						cantidad: prodAdd.cantidad,
-					};
+					let cantidadNueva = prod.cantidad + prodAdd.cantidad;
+					console.log(prodAdd.stock);
+					let newProd;
+					if (cantidadNueva >= prodAdd.stock) {
+						console.log('es mayor');
+						newProd = {
+							...prod,
+							cantidad: prodAdd.stock,
+						};
+					} else {
+						console.log('todavia se puede');
+						newProd = {
+							...prod,
+							cantidad: cantidadNueva,
+						};
+					}
 					return newProd;
 				} else {
 					return prod;

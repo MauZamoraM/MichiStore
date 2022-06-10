@@ -14,7 +14,7 @@ export const ItemDetail = ({
 }) => {
 	const [cantidad, setCantidad] = useState(0);
 
-	const { addCart, getProdCant } = useContext(ContextCart);
+	const { addCart } = useContext(ContextCart);
 
 	const handleOnAdd = (cantidad) => {
 		setCantidad(cantidad);
@@ -75,7 +75,7 @@ export const ItemDetail = ({
 				) : (
 					<ItemCount
 						stock={stock}
-						inicial={getProdCant(id)?.cantidad}
+						inicial={1}
 						onConfirm={handleOnAdd}
 					/>
 				)}
