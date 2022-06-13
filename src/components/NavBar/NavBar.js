@@ -2,8 +2,12 @@ import { CartWidget } from '../CartWidget/CartWidget';
 import img from './Michi Store.png';
 import './navbar.css';
 import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import ContextCart from '../../context/CartContext';
 
 export function NavBar() {
+	const { cart } = useContext(ContextCart);
+
 	return (
 		<div>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,12 +83,19 @@ export function NavBar() {
 								</ul>
 							</div>
 						</div>
-						<Link className="nav-link carrito mt-2" to="cart">
-							<CartWidget />
-						</Link>
-						<a className="nav-link login" href="...">
-							Login
-						</a>
+						<div className="carrito">
+							{cart.length === 0 ? (
+								''
+							) : (
+								<Link className="nav-link mt-2" to="cart">
+									<CartWidget />
+								</Link>
+							)}
+
+							<a className="nav-link login" href="...">
+								Login
+							</a>
+						</div>
 					</div>
 				</div>
 			</nav>

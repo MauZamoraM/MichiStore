@@ -1,9 +1,14 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 const ContextCart = createContext();
 
 export const CartContextProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
+	const [total, setTotal] = useState([]);
+
+	useEffect(() => {
+		getTotal();
+	}, [cart]);
 
 	const addCart = (prodAdd) => {
 		if (!isInCart(prodAdd.id)) {
@@ -12,16 +17,13 @@ export const CartContextProvider = ({ children }) => {
 			const newCart = cart.map((prod) => {
 				if (prod.id === prodAdd.id) {
 					let cantidadNueva = prod.cantidad + prodAdd.cantidad;
-					console.log(prodAdd.stock);
 					let newProd;
 					if (cantidadNueva >= prodAdd.stock) {
-						console.log('es mayor');
 						newProd = {
 							...prod,
 							cantidad: prodAdd.stock,
 						};
 					} else {
-						console.log('todavia se puede');
 						newProd = {
 							...prod,
 							cantidad: cantidadNueva,
@@ -44,6 +46,14 @@ export const CartContextProvider = ({ children }) => {
 		return accu;
 	};
 
+	const getTotal = () => {
+		let total = 0;
+		cart.forEach((prod) => {
+			total += prod.cantidad * prod.precio;
+		});
+		setTotal(total);
+	};
+
 	const isInCart = (id) => {
 		return cart.some((prod) => prod.id === id);
 	};
@@ -59,7 +69,15 @@ export const CartContextProvider = ({ children }) => {
 
 	return (
 		<ContextCart.Provider
-			value={{ addCart, cart, getQuantity, getProdCant, deleteFromCart }}
+			value={{
+				addCart,
+				cart,
+				getQuantity,
+				getProdCant,
+				deleteFromCart,
+				total,
+				setCart,
+			}}
 		>
 			{children}
 		</ContextCart.Provider>

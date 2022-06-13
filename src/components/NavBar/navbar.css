@@ -10,6 +10,9 @@
 }
 .carrito {
 	margin-left: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .boton-nav {
 	background-color: transparent;
