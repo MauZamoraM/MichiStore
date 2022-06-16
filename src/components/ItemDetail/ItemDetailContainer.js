@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getProductosById } from '../../productos';
+// import { getProductosById } from '../../productos';
 import './ItemDetail.css';
 import { ItemDetail } from './ItemDetail';
 import { useParams } from 'react-router-dom';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../../service/firebase';
 
 export const ItemDetailContainer = () => {
 	const [producto, setProducto] = useState();
@@ -14,16 +16,25 @@ export const ItemDetailContainer = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		getProductosById(productos)
+
+		getDoc(doc(db, 'productos', productId))
 			.then((response) => {
-				setProducto(response);
+				const producto = { id: response.id, ...response.data() };
+				setProducto(producto);
 			})
-			.catch((error) => {
-				console.log(error);
-			})
-			.finally(() => {
-				setLoading(false);
-			});
+			.catch((error) => console.log(error))
+			.finally(setLoading(false));
+
+		// getProductosById(productos)
+		// 	.then((response) => {
+		// 		setProducto(response);
+		// 	})
+		// 	.catch((error) => {
+		// 		console.log(error);
+		// 	})
+		// 	.finally(() => {
+		// 		setLoading(false);
+		// 	});
 	}, [productos]);
 
 	if (loading) {

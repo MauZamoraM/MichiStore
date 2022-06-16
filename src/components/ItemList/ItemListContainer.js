@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProductos, getProductosByCategory } from '../../productos';
+// import { getProductos, getProductosByCategory } from '../../productos';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 import './Cart.css';
 import { ItemList } from './ItemList';
+import { db } from '../../service/firebase';
 
 export const ItemListContainer = ({ greeting }) => {
 	const [productos, setProductos] = useState([]);
@@ -12,29 +14,25 @@ export const ItemListContainer = ({ greeting }) => {
 
 	useEffect(() => {
 		setLoading(true);
-		if (!categoryId) {
-			getProductos()
-				.then((res) => {
-					setProductos(res);
-				})
-				.catch((error) => {
-					console.log(error);
-				})
-				.finally(() => {
-					setLoading(false);
+
+		const collectionRef = categoryId
+			? query(
+					collection(db, 'productos'),
+					where('categoria', '==', categoryId),
+			  )
+			: collection(db, 'productos');
+
+		getDocs(collectionRef)
+			.then((response) => {
+				const productos = response.docs.map((doc) => {
+					return { id: doc.id, ...doc.data() };
 				});
-		} else {
-			getProductosByCategory(categoryId)
-				.then((res) => {
-					setProductos(res);
-				})
-				.catch((error) => {
-					console.log(error);
-				})
-				.finally(() => {
-					setLoading(false);
-				});
-		}
+				setProductos(productos);
+			})
+			.catch((error) => {
+				console.log(error);
+			})
+			.finally(setLoading(false));
 	}, [categoryId]);
 
 	if (loading) {
