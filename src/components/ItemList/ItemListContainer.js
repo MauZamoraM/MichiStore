@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import { getProductos, getProductosByCategory } from '../../productos';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import './Cart.css';
 import { ItemList } from './ItemList';
