@@ -92,9 +92,9 @@ export function NavBar() {
 								</Link>
 							)}
 
-							<a className="nav-link login" href="...">
+							<Link className="nav-link login" to="/productos">
 								Login
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>
