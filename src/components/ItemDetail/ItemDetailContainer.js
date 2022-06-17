@@ -11,8 +11,6 @@ export const ItemDetailContainer = () => {
 
 	const { productId } = useParams();
 
-	const productos = parseInt(productId);
-
 	useEffect(() => {
 		setLoading(true);
 
@@ -22,8 +20,10 @@ export const ItemDetailContainer = () => {
 				setProducto(producto);
 			})
 			.catch((error) => console.log(error))
-			.finally(setLoading(false));
-	}, [productos]);
+			.finally(() => {
+				setLoading(false);
+			});
+	}, [productId]);
 
 	if (loading) {
 		return (

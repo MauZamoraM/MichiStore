@@ -31,7 +31,9 @@ export const ItemListContainer = ({ greeting }) => {
 			.catch((error) => {
 				console.log(error);
 			})
-			.finally(setLoading(false));
+			.finally(() => {
+				setLoading(false);
+			});
 	}, [categoryId]);
 
 	if (loading) {
