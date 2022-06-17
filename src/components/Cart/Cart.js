@@ -49,7 +49,7 @@ export const Cart = ({ titulo }) => {
 					})}
 				</div>
 				<h4 className="m-3" style={{ color: 'gray' }}>
-					Total a pagar: {total}
+					Total a pagar: ${total}
 				</h4>
 				<div className="m-3">
 					<Link className="fancy" to="">
