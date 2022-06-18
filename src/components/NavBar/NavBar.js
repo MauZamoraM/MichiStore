@@ -53,7 +53,7 @@ export function NavBar() {
 											className="dropdown-item"
 											to="/categoria/Rascador"
 										>
-											Racador
+											Rascadores
 										</NavLink>
 									</li>
 									<li>
