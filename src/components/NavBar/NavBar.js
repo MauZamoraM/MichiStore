@@ -91,10 +91,6 @@ export function NavBar() {
 									<CartWidget />
 								</Link>
 							)}
-
-							<Link className="nav-link login" to="/productos">
-								Login
-							</Link>
 						</div>
 					</div>
 				</div>

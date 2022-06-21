@@ -2,13 +2,10 @@ import { useState } from 'react';
 import './ItemCount.css';
 
 export const ItemCount = ({ onConfirm, stock, inicial }) => {
-	const stock1 = parseInt(stock);
-	const inicial1 = parseInt(inicial);
-
-	const [contador, setContador] = useState(inicial1 || 1);
+	const [contador, setContador] = useState(inicial || 1);
 
 	function aumentar() {
-		if (contador < stock1) {
+		if (contador < stock) {
 			setContador(contador + 1);
 		}
 	}

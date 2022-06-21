@@ -75,7 +75,13 @@ export const ItemDetail = ({
 				) : (
 					<ItemCount
 						stock={stock}
-						inicial={1}
+						inicial={() => {
+							if (stock === 0) {
+								return 0;
+							} else {
+								return 1;
+							}
+						}}
 						onConfirm={handleOnAdd}
 					/>
 				)}
