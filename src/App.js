@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Inicio } from './components/Inicio/Inicio';
 import { Cart } from './components/Cart/Cart';
 import { CartContextProvider } from './context/CartContext';
+import { Finalizar } from './components/FinalizarCompra/Finalizar';
 
 function App() {
 	return (
@@ -35,6 +36,10 @@ function App() {
 						<Route
 							path="/cart"
 							element={<Cart titulo="C A R R I T O" />}
+						/>
+						<Route
+							path="/carrito/finalizar"
+							element={<Finalizar />}
 						/>
 					</Routes>
 				</BrowserRouter>

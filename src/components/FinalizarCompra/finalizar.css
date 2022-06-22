@@ -1,0 +1,21 @@
+.finalizar-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.formulario,
+.detalles-pagar {
+	padding: 30px;
+	width: 50%;
+}
+.formulario {
+	border-right: 1px solid #fab43d;
+}
+.img-orden {
+	margin-top: 20px;
+	width: 200px;
+}
+.texto-orden {
+	color: #fab43d;
+}
