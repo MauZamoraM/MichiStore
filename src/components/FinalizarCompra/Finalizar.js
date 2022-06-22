@@ -1,36 +1,21 @@
 import React, { useContext, useState } from 'react';
 import ContextCart from '../../context/CartContext';
 import './finalizar.css';
-import {
-	addDoc,
-	collection,
-	getDocs,
-	query,
-	where,
-	documentId,
-	writeBatch,
-} from 'firebase/firestore';
-import { db } from '../../service/firebase';
 import { Orden } from './Orden';
+import { Loading } from '../Loading/Loading';
+import { crateOrderProd } from '../../service/firebase/firestore';
 
 export const Finalizar = () => {
 	const { cart, total, setCart } = useContext(ContextCart);
+
+	const [loading, setLoading] = useState(false);
+	const [Navegar, setNavegar] = useState(false);
 
 	const [nombre, setNombre] = useState('');
 	const [email, setEmail] = useState('');
 	const [telefono, setTelefono] = useState('');
 	const [direccion, setDireccion] = useState('');
-	const [loading, setLoading] = useState(false);
-	const [Navegar, setNavegar] = useState(false);
 	const [compra, setCompra] = useState('');
-
-	if (Navegar) {
-		return (
-			<div>
-				<Orden compra={compra} />
-			</div>
-		);
-	}
 
 	const handleNombre = (e) => {
 		setNombre(e.target.value);
@@ -58,64 +43,27 @@ export const Finalizar = () => {
 			total: total,
 		};
 
-		const ids = cart.map((prod) => prod.id);
-
-		const batch = writeBatch(db);
-
-		const fueraStock = [];
-
-		const collectionRef = collection(db, 'productos');
-
-		getDocs(query(collectionRef, where(documentId(), 'in', ids)))
-			.then((response) => {
-				response.docs.forEach((doc) => {
-					const dataDoc = doc.data();
-					const prodCantidad = cart.find(
-						(prod) => prod.id === doc.id,
-					)?.cantidad;
-
-					if (dataDoc.stock >= prodCantidad) {
-						batch.update(doc.ref, {
-							stock: dataDoc.stock - prodCantidad,
-						});
-					} else {
-						fueraStock.push({ id: doc.id, ...dataDoc });
-					}
-				});
+		crateOrderProd(obj, cart, setCart)
+			.then((res) => {
+				setCompra(res);
 			})
-			.then(() => {
-				if (fueraStock.length === 0) {
-					const collectionRef = collection(db, 'ordenes');
-					return addDoc(collectionRef, obj);
-				} else {
-					return Promise.reject({
-						type: 'out_stock',
-						productos: fueraStock,
-					});
-				}
-			})
-			.then(({ id }) => {
-				batch.commit();
-				setCart([]);
-				setNavegar(true);
-				setCompra(id);
-			})
-			.catch((error) => {
-				console.log(error);
-			})
+			.catch((error) => console.log(error))
 			.finally(() => {
 				setLoading(false);
+				setNavegar(true);
 			});
 	};
 
-	if (loading) {
+	if (Navegar) {
 		return (
-			<svg className="loader" viewBox="0 0 100 100">
-				<circle className="moon moon-back"></circle>
-				<circle className="planet"></circle>
-				<circle className="moon moon-front"></circle>
-			</svg>
+			<div>
+				<Orden compra={compra} />
+			</div>
 		);
+	}
+
+	if (loading) {
+		return <Loading />;
 	}
 
 	return (

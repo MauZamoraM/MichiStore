@@ -2,7 +2,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-wrap: wrap;
 }
 .formulario,
 .detalles-pagar {
@@ -18,4 +17,14 @@
 }
 .texto-orden {
 	color: #fab43d;
+}
+@media (max-width: 800px) {
+	.finalizar-container {
+		flex-direction: column-reverse;
+	}
+	.formulario,
+	.detalles-pagar {
+		padding: 30px;
+		width: 100%;
+	}
 }

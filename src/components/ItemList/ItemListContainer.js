@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getDocs, collection, query, where } from 'firebase/firestore';
 import './Cart.css';
 import { ItemList } from './ItemList';
-import { db } from '../../service/firebase';
+import { getProd } from '../../service/firebase/firestore';
+import { Loading } from '../Loading/Loading';
 
 export const ItemListContainer = ({ greeting }) => {
 	const [productos, setProductos] = useState([]);
@@ -14,36 +14,18 @@ export const ItemListContainer = ({ greeting }) => {
 	useEffect(() => {
 		setLoading(true);
 
-		const collectionRef = categoryId
-			? query(
-					collection(db, 'productos'),
-					where('categoria', '==', categoryId),
-			  )
-			: collection(db, 'productos');
-
-		getDocs(collectionRef)
-			.then((response) => {
-				const productos = response.docs.map((doc) => {
-					return { id: doc.id, ...doc.data() };
-				});
-				setProductos(productos);
+		getProd(categoryId)
+			.then((prod) => {
+				setProductos(prod);
 			})
-			.catch((error) => {
-				console.log(error);
-			})
+			.catch((error) => console.log(error))
 			.finally(() => {
 				setLoading(false);
 			});
 	}, [categoryId]);
 
 	if (loading) {
-		return (
-			<svg className="loader" viewBox="0 0 100 100">
-				<circle className="moon moon-back"></circle>
-				<circle className="planet"></circle>
-				<circle className="moon moon-front"></circle>
-			</svg>
-		);
+		return <Loading />;
 	}
 
 	return (
