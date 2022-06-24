@@ -12,7 +12,7 @@ Puedes visitarla dando en este link ➡️ https://michistore.herokuapp.com/ (Pu
 
 ### Preview de la pagina ✨
 
-![Preview Img](./public/Preview.gif)
+![Preview Img](./public/PreviewMichi.gif)
 
 ### Recorrido de la pagina
 
