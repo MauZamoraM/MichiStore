@@ -1,24 +1,42 @@
-# Michi Store 🐈
+# MichiStore 🐈
 
-Michi Store es un tienda de venta de productos para animales minimalista, simple de utilizar y bonita ✨
+![imagen](./public/MichiLogo.png)
+
+Michi Store es un tienda de venta de productos para gatos minimalista, simple de utilizar y bonita ✨
 
 Esta aplicacion fue creada con React ⚛️
 
-### Asi es como se ve la pagina ✨
+### ¿Quieres ver la aplicacion funcionando? 🤔
+
+Puedes visitarla dando en este link ➡️ https://michistore.herokuapp.com/ (Puede llegar a tardar un poco en cargar... Se paciente 🥺)
+
+### Preview de la pagina ✨
 
 ![Preview Img](./public/Preview.gif)
 
----
+### Recorrido de la pagina
+
+-   Inicio - '/'
+-   Productos - '/productos'
+-   Categoria - '/categoria/Rascador' (Donde esta el 'Rascador' se coloca la categoria a buscar)
+-   Detalle - '/productos/idDelProducto' (En idDelProducto se pone el id del producto a buscar)
+-   Carrito - '/cart'
+-   Finalizar compra - '/carrito/finalizar'
 
 ## ¿Como empezamos?
 
-Empecemos haciendo la instalacion necesaria en el proyecto 😁
+Empecemos haciendo lo necesario para correr el proyecto 😁
 
-`npm i` - Para instalar los nodemodules
+```bash
+git clone https://github.com/OscarAntonioR/MichiStore.git
+cd MichiStore
+npm i - Para instalar los nodemodules
+npm start - Para correr la app
+```
 
-`npm start` - Para correr la app
+## Variables de entorno
 
----
+El proyecto hace uso de Firebase-Firestore por lo que hay elementos que se tienen que proteger... Por esta razon este proyecto tiene variables de entorno. Puedes ver un ejemplo en el .env.ejemplo de las variables necesarias
 
 ## Componentes creados
 
@@ -34,4 +52,14 @@ Empecemos haciendo la instalacion necesaria en el proyecto 😁
     -   Se muestra el detalle del item que sea deseado
     -   Y el contenedor es donde se almacena la informacion de item con el contador para que se agregue algun producto
 -   CartWidget
-    -   El icono del carrito
+    -   El icono del
+-   Loading
+    -   Componente dedicado para mostrar el loading
+-   Inicio
+    -   Muestra el inicio de la pagina
+-   Cart y CartDetail
+    -   Cart: La informacion que se muestra en el carrito
+    -   CartDetail: Muestra el detalle de los productos que se agregaron al carrito
+-   Finalizar y Orden
+    -   Finalizar: Se muestra al finalizar la compra, se encuentra un formulario, en el cual tienes que poner los datos de envio y un resumen de la compra
+    -   Orden: Muestra el id de orden y un link para regresar a ver los productos

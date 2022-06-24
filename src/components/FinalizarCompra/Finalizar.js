@@ -11,33 +11,45 @@ export const Finalizar = () => {
 	const [loading, setLoading] = useState(false);
 	const [Navegar, setNavegar] = useState(false);
 
-	const [nombre, setNombre] = useState('');
-	const [email, setEmail] = useState('');
-	const [telefono, setTelefono] = useState('');
-	const [direccion, setDireccion] = useState('');
 	const [compra, setCompra] = useState('');
 
+	const [form, setForm] = useState({
+		nombre: '',
+		email: '',
+		telefono: '',
+		direccion: '',
+	});
+
 	const handleNombre = (e) => {
-		setNombre(e.target.value);
+		setForm({
+			...form,
+			nombre: e.target.value,
+		});
 	};
 	const handleEmail = (e) => {
-		setEmail(e.target.value);
+		setForm({
+			...form,
+			email: e.target.value,
+		});
 	};
 	const handleTelefono = (e) => {
-		setTelefono(e.target.value);
+		setForm({
+			...form,
+			telefono: e.target.value,
+		});
 	};
 	const handleDireccion = (e) => {
-		setDireccion(e.target.value);
+		setForm({
+			...form,
+			direccion: e.target.value,
+		});
 	};
 
 	const createOrder = () => {
 		setLoading(true);
 		const obj = {
 			buyer: {
-				nombre,
-				email,
-				telefono,
-				direccion,
+				form,
 			},
 			items: cart,
 			total: total,
@@ -68,47 +80,51 @@ export const Finalizar = () => {
 
 	return (
 		<div className="finalizar-container animate__animated animate__fadeIn">
-			<div className="formulario">
+			<div className="formulario was-validated">
 				<h3 className="texto-orden">C O M P R A D O R</h3>
 				<br />
 				<label>Nombre</label>
 				<input
-					className="form-control"
+					className="form-control is-invalid"
 					type="text"
 					name="nombre"
-					value={nombre}
+					value={form.nombre}
 					placeholder="Nombre"
 					onChange={handleNombre}
+					required
 				></input>
 				<br />
 				<label>Email</label>
 				<input
-					className="form-control"
+					className="form-control is-invalid"
 					type="email"
 					placeholder="Email"
 					name="email"
-					value={email}
+					value={form.email}
 					onChange={handleEmail}
+					required
 				></input>
 				<br />
 				<label>Telefono</label>
 				<input
-					className="form-control"
+					className="form-control is-invalid"
 					type="text"
 					placeholder="Telefono"
 					name="telefono"
-					value={telefono}
+					value={form.telefono}
 					onChange={handleTelefono}
+					required
 				></input>
 				<br />
 				<label>Direccion</label>
 				<input
-					className="form-control"
+					className="form-control is-invalid"
 					type="text"
 					placeholder="Direccion"
 					name="direccion"
-					value={direccion}
+					value={form.direccion}
 					onChange={handleDireccion}
+					required
 				></input>
 				<br />
 				<div className="m-3 fancy" onClick={createOrder}>

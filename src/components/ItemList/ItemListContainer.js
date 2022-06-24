@@ -1,31 +1,24 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Cart.css';
 import { ItemList } from './ItemList';
 import { getProd } from '../../service/firebase/firestore';
 import { Loading } from '../Loading/Loading';
+import { useFirestore } from '../../hooks/useFirestore';
 
 export const ItemListContainer = ({ greeting }) => {
-	const [productos, setProductos] = useState([]);
-	const [loading, setLoading] = useState(true);
-
 	const { categoryId } = useParams();
 
-	useEffect(() => {
-		setLoading(true);
-
-		getProd(categoryId)
-			.then((prod) => {
-				setProductos(prod);
-			})
-			.catch((error) => console.log(error))
-			.finally(() => {
-				setLoading(false);
-			});
-	}, [categoryId]);
+	const { loading, producto, error } = useFirestore(
+		() => getProd(categoryId),
+		[categoryId],
+	);
 
 	if (loading) {
 		return <Loading />;
+	}
+
+	if (error) {
+		return <h1>Error</h1>;
 	}
 
 	return (
@@ -33,8 +26,8 @@ export const ItemListContainer = ({ greeting }) => {
 			<h2 style={{ color: '#fab43d' }} className="mt-4">
 				- {categoryId || greeting} -
 			</h2>
-			{productos.length > 0 ? (
-				<ItemList productos={productos} />
+			{producto.length > 0 ? (
+				<ItemList productos={producto} />
 			) : (
 				<h2>No hay productos</h2>
 			)}

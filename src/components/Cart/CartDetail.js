@@ -2,16 +2,7 @@ import { useContext } from 'react';
 import ContextCart from '../../context/CartContext';
 import './Cart.css';
 
-export function CartDetail({
-	id,
-	nombre,
-	categoria,
-	precio,
-	stock,
-	img,
-	descripcion,
-	cantidad,
-}) {
+export function CartDetail({ id, nombre, precio, img, cantidad }) {
 	const { deleteFromCart } = useContext(ContextCart);
 
 	return (
