@@ -2,7 +2,7 @@
 
 ![imagen](./public/MichiLogo.png)
 
-Michi Store es un tienda de venta de productos para gatos minimalista, simple de utilizar y bonita ✨
+Michi Store es un tienda de venta de productos para gatos. Con un diseño minimalista, simple de utilizar y bonita ✨
 
 Esta aplicacion fue creada con React ⚛️
 
